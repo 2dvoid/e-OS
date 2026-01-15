@@ -1,0 +1,27 @@
+# --- Archiso Build Artifacts ---
+# Temporary working directory
+work/
+
+# Output directory containing the final ISOs
+out/
+
+# Local Package Cache
+packages/
+
+# System & Editor Junk
+# Vim/Neovim swap and backup files
+*.swp
+*.swo
+*~
+
+# File managers local configs
+.DS_Store
+Thumbs.db
+
+# --- Security Precautions ---
+# Prevent accidental commit of private keys
+*.pem
+*.key
+id_rsa
+id_rsa.pub
+user_credentials.json
