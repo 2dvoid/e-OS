@@ -8,7 +8,8 @@ e-OS is a portable development environment built on Arch Linux.
 
 Designed as a specialized **Live Distro**, it is engineered to run entirely from a USB drive, instantly transforming any computer into a highly efficient development environment without installation.
 
----
+
+
 
 ## ⚡ Core Philosophy
 Rejecting the visual bloat of modern operating systems, e-OS adopts a strict **"function over form"** philosophy. It prioritizes raw speed, keyboard-driven efficiency, and essentialism. It doesn't care about looking pretty; it cares about getting the job done.
