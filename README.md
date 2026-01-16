@@ -1,2 +1,2 @@
 # e-OS
-Emon's Operating System
+Emon's Arch Linux based Operating System
