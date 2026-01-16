@@ -1,0 +1,9 @@
+NAME="e-OS"
+PRETTY_NAME="e-OS v1.0"
+ID=arch
+BUILD_ID=rolling
+ANSI_COLOR="38;2;23;147;209"
+HOME_URL="https://github.com/2dvoid/e-OS"
+SUPPORT_URL="https://github.com/2dvoid/e-OS"
+BUG_REPORT_URL="https://github.com/2dvoid/e-OS"
+LOGO=archlinux-logo
