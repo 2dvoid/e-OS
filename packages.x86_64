@@ -17,6 +17,7 @@ clonezilla
 cloud-init
 cryptsetup
 darkhttpd
+dbus
 ddrescue
 dhcpcd
 diffutils
@@ -38,8 +39,10 @@ firefox
 foot
 foot-terminfo
 fsarchiver
+gcr
 git
 gnome-disk-utility
+gnome-keyring
 gpart
 gparted
 gpm
