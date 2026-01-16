@@ -103,6 +103,7 @@ nmap
 noto-fonts
 noto-fonts-cjk
 noto-fonts-emoji
+noto-fonts-extra
 ntfs-3g
 nvme-cli
 nwg-look
@@ -112,6 +113,7 @@ openconnect
 openpgp-card-tools
 openssh
 openvpn
+otf-font-awesome
 partclone
 parted
 partimage
@@ -121,6 +123,7 @@ pipewire
 pipewire-alsa
 pipewire-pulse
 pipewire-jack
+playerctl
 polkit-gnome
 ppp
 pptpclient
@@ -160,6 +163,7 @@ tpm2-tools
 tpm2-tss
 ttf-iosevka-nerd
 ttf-jetbrains-mono-nerd
+ttf-roboto
 udftools
 upower
 usb_modeswitch

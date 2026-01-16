@@ -1,0 +1,301 @@
+#############################################
+#              VARIABLES
+#############################################
+
+# Modifier Key
+set $mod Mod4
+
+# Home row direction keys, like vim
+set $left h
+set $down j
+set $up k
+set $right l
+
+set $HOME "$(echo $HOME)"
+set $term kitty
+set $drun wofi --show drun
+set $run wofi --show run
+
+
+#############################################
+#              Exec
+#############################################
+## Authentication Agent(Gnome Polkit)
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec gnome-keyring-daemon --start --components=secrets
+## Cliboard Manager (wl-clip-persist)
+exec wl-clip-persist --clipboard regular
+
+## Fix Theming (Gemini Advice)
+# Import environment variables into the systemd user session
+exec systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+# Update DBus (fixes apps not launching or launching slowly)
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+
+#############################################
+#              INPUT DEVICES
+#############################################
+seat * hide_cursor 3000
+
+# CRITICAL for Laptops
+input type:touchpad {
+    dwt enabled
+    tap enabled
+    natural_scroll enabled
+    middle_emulation enabled
+}
+
+# Sets US layout by default.
+input type:keyboard {
+    xkb_layout us
+}
+
+#############################################
+#              OUTPUTS / MONITORS
+#############################################
+
+
+#############################################
+#              GENERAL SETTINGS
+#############################################
+workspace_layout stacking
+focus_wrapping no
+smart_borders on
+default_border pixel 4
+font pango:IosevkaNerdFontMono 10
+title_align center
+#titlebar_padding 5
+hide_edge_borders --i3 smart
+#focus_follows_mouse no
+#focus_wrapping yes
+
+#############################################
+#              KEYBINDINGS
+#############################################
+
+# Start a terminal
+bindsym $mod+Return exec $term
+
+# Kill focused window
+bindsym $mod+Backspace kill
+
+# Start your launcher
+bindsym $mod+d exec $drun
+bindsym $mod+semicolon exec $run
+
+# File Manager: Yazi
+#bindsym $mod+e exec "$term -e yazi"
+
+# Launch default browser
+#bindsym $mod+s exec xdg-open http://
+# Launch or Raise Zen Browser
+#bindsym $mod+s exec "sway-focus zen zen-browser"
+
+
+# Reload the configuration file
+bindsym $mod+Shift+r reload
+
+## Moving around:
+# Vim Keys
+bindsym $mod+$left focus left
+bindsym $mod+$down focus down
+bindsym $mod+$up focus up
+bindsym $mod+$right focus right
+
+# Arrow Keys
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# Mouse Wheel Bind
+bindsym --whole-window $mod+button4 focus up
+bindsym --whole-window $mod+button5 focus down
+
+# Move the focused window with the same, but add Shift
+bindsym $mod+Shift+$left move left
+bindsym $mod+Shift+$down move down
+bindsym $mod+Shift+$up move up
+bindsym $mod+Shift+$right move right
+# Ditto, with arrow keys
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+## Fullscreen
+bindsym $mod+f fullscreen toggle
+
+## Power Off
+bindsym $mod+Control+Alt+Backspace exec 'systemctl poweroff'
+
+## Control Volume with Super+Control+k, Super+Control+j:
+bindsym --locked $mod+Control+k exec wpctl set-volume @DEFAULT_SINK@ 5%+ --limit 1
+bindsym --locked $mod+Control+j exec wpctl set-volume @DEFAULT_SINK@ 5%- --limit 1
+
+## Control Volume with Super+Control+up, Super+Control+down:
+bindsym --locked $mod+Control+up exec wpctl set-volume @DEFAULT_SINK@ 5%+ --limit 1
+bindsym --locked $mod+Control+down exec wpctl set-volume @DEFAULT_SINK@ 5%- --limit 1
+
+## Control Volume with Media Buttons
+bindsym --locked XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_SINK@ 5%+ --limit 1
+bindsym --locked XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_SINK@ 5%- --limit 1
+
+## Toggle Play/Pause with the Keyborad Knob/Dial
+bindsym --locked XF86AudioMute exec playerctl play-pause
+
+
+## Audio Playback Control:
+bindsym --locked --no-repeat XF86AudioPlay exec playerctl play-pause
+bindsym --locked --no-repeat $mod+Control+Space exec playerctl play-pause
+bindsym --locked --no-repeat XF86AudioNext exec playerctl next
+bindsym --locked --no-repeat $mod+Control+right exec playerctl next
+bindsym --locked --no-repeat XF86AudioPrev exec playerctl previous
+bindsym --locked --no-repeat $mod+Control+left exec playerctl previous
+
+    
+## Screenshot:
+# ----- Screenshot Bindings (using grimshot) -----
+
+# 1. Copy a selected area to the clipboard
+bindsym $mod+backslash exec "grimshot --notify copy area"
+
+# 2. Save a selected area to a file
+bindsym $mod+ctrl+backslash exec "grimshot --notify save area"
+
+# 3. Save the current screen (output) to a file
+#bindsym Shift+backslash exec grimshot save screen
+
+# 4. Save the currently focused window to a file
+#bindsym $mod+Shift+backslash exec grimshot save window
+
+################################## Workspaces #################################################
+
+## Define
+set $ws1 "1:productivity"
+set $ws2 "2:university"
+set $ws3 "3:editor"
+set $ws4 "4:search"
+set $ws5 "5:ai"
+set $ws6 "6:media"
+set $ws7 "7:explore"
+set $ws8 "8:config"
+set $ws9 "9:misc"
+
+## Set Workspace by name:
+bindsym $mod+p workspace $ws1
+bindsym $mod+u workspace $ws2
+bindsym $mod+n workspace $ws3
+bindsym $mod+s workspace $ws4
+bindsym $mod+i workspace $ws5
+bindsym $mod+m workspace $ws6
+bindsym $mod+e workspace $ws7
+bindsym $mod+c workspace $ws8
+bindsym $mod+o workspace $ws9
+
+# Swap between current and previous workspace (Toggle)
+bindsym $mod+space workspace back_and_forth
+
+# Move focused container to workspace
+bindsym $mod+Shift+p move container to workspace $ws1
+bindsym $mod+Shift+u move container to workspace $ws2
+bindsym $mod+Shift+n move container to workspace $ws3
+bindsym $mod+Shift+s move container to workspace $ws4
+bindsym $mod+Shift+i move container to workspace $ws5
+bindsym $mod+Shift+m move container to workspace $ws6
+bindsym $mod+Shift+e move container to workspace $ws7
+bindsym $mod+Shift+c move container to workspace $ws8
+bindsym $mod+Shift+o move container to workspace $ws9
+
+# Resizing containers:
+mode "resize" {
+    bindsym $left resize shrink width 10px
+    bindsym $down resize grow height 10px
+    bindsym $up resize shrink height 10px
+    bindsym $right resize grow width 10px
+    # Ditto, with arrow keys
+    bindsym Left resize shrink width 10px
+    bindsym Down resize grow height 10px
+    bindsym Up resize shrink height 10px
+    bindsym Right resize grow width 10px
+
+    # Return to default mode
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+### Lock Screen
+bindsym --release $mod+Control+l exec sway-lock
+
+
+#############################################
+#              LOOK & FEEL
+#############################################
+
+## Wallpaper
+output * bg $HOME/.config/background fill
+
+## Colors
+client.focused          #4c7899 #285577 #ffffff #2e9ef4
+client.focused_inactive #333333 #5f676a #ffffff #484e50
+client.unfocused        #333333 #222222 #888888 #292d2e
+client.urgent           #2f343a #900000 #ffffff #900000
+
+## Gaps
+# gaps inner 5
+# gaps outer 30
+# workspace $ws5 gaps outer 30
+gaps horizontal 100
+gaps vertical 30
+# gaps inner 20
+
+
+#############################################
+#              WINDOW RULES
+#############################################
+
+## Assign apps to Workspaces
+assign [class="ticktick"] $ws1
+assign [app_id="neovide"] $ws3
+assign [app_id="zen"] $ws4
+assign [app_id="firefox"] $ws5
+assign [app_id="thunar"] $ws7
+
+#for_window [app_id="firefox"] title_format "Firefox"
+#for_window [app_id="LibreWolf"] title_format "%app_id"
+for_window [app_id="zen"] title_format "Zen"
+for_window [app_id="firefox"] title_format "AI"
+
+for_window [app_id="firefox"] fullscreen enable
+# for_window [app_id="neovide"] fullscreen enable
+
+############################################
+#		Panel Setup
+############################################
+
+bar {
+    swaybar_command waybar
+}
+
+############################################
+#          Idle Setup
+############################################
+### Idle configuration
+exec swayidle -w \
+          timeout 480 sway-lock \
+          before-sleep sway-lock
+
+#############################################
+#		Includes
+#############################################
+include /etc/sway/config.d/*
+
+
+#############################################
+#		       Autostart
+#############################################
+# Autostart Apps with the wrapper script at $HOME/.config/sway/scripts/autostart.sh
+exec $HOME/.config/sway/scripts/autostart.sh
+exec $HOME/.config/sway/bin/warmlight
