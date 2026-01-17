@@ -17,10 +17,11 @@ e-OS is a portable workspace designed for developers who need to move fast. It i
 
 ## 📸 Showcase
 
-| Login Screen | Sway Desktop |
-| :---: | :---: |
-| ![Login](https://via.placeholder.com/400x225?text=Login+Screen) | ![Desktop](https://via.placeholder.com/400x225?text=Sway+Desktop) |
+![nvdash](https://github.com/user-attachments/assets/0c7e2c8f-8940-42ea-9c18-7456768d2d05)
+<img src="https://nvchad.com/banner.webp">
 
+<img src="https://nvchad.com/screenshots/onedark.webp">
+<img src="https://nvchad.com/screenshots/rxyhn1.webp">
 
 
 ## ⚡ Features
