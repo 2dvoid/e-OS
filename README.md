@@ -1,6 +1,6 @@
 <div align="center">
   
-# e-OS
+# / e-OS /
 
 ![Distro](https://img.shields.io/badge/Distro-Arch_Linux-1793d1?style=for-the-badge&logo=arch-linux&logoColor=white)
 ![WM](https://img.shields.io/badge/WM-Sway-30363F?style=for-the-badge&logo=sway&logoColor=white)
@@ -40,43 +40,25 @@ Want to change the defaults before building? Here is how to tweak the source:
 * 📦 **Add Software:** Edit `packages.x86_64` to add or remove packages from the ISO.
 * 🎨 **Dotfiles:** Modify `airootfs/etc/skel/.config` to change the default Sway, Neovim, or Zsh configs for new users.
 * 🖼️ **Wallpapers:** Drop your images into `airootfs/.config/background` and `airootfs/.config/lockscreen` to bake them into the build.
-* 🚀 **Services:** Place startups units in `airootfs/etc/systemd/system` to enable them during boot.
 
 
-## 🛠️ Building from Source
 
-To build **e-OS** yourself, you need an Arch Linux system with the `archiso` package installed.
+## 🏗️ Build Instructions
 
-### 1. Prerequisites
+Clone the repo and build the ISO with a single command:
+
 ```bash
+# 1. Install dependencies
 sudo pacman -S archiso git
-```
 
-### 2. Clone the Repository
-```bash
-git clone [https://github.com/yourusername/e-OS.git](https://github.com/yourusername/e-OS.git)
+# 2. Clone the Repository
+git clone https://github.com/2dvoid/e-OS.git
 cd e-OS
-```
 
-### 3. Build the ISO
-This command uses your local disk for the working directory (safer than RAM) and outputs the ISO to the `out/` folder.
-
-```bash
-# Clean previous builds (optional)
-sudo rm -rf work out
-
-# Run the build script
+# 3. Build the ISO
+# ISO file will built in the out/ directory
 sudo mkarchiso -v -w work -o out .
+
+# 3. Burn to USB
+sudo dd if=e-OS-*.iso of=/dev/sdX bs=4M status=progress oflag=sync
 ```
-
-*Build time: 5-15 minutes depending on internet connection and CPU.*
-
-### 4. Burn to USB
-Once the build is complete, you can find the ISO in the `out/` directory. Flash it using `dd` or Etcher.
-
-```bash
-# Replace /dev/sdX with your USB drive identifier
-sudo dd bs=4M if=out/e-OS-v1.0-x86_64.iso of=/dev/sdX status=progress oflag=sync
-```
-
----
