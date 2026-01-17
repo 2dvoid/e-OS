@@ -10,7 +10,7 @@
 ![Release](https://img.shields.io/github/v/release/yourusername/e-OS?style=for-the-badge&logo=github&logoColor=white&color=285577)
 
 <p>
-e-OS is a portable workspace designed for developers who need to move fast. It is a full Arch Linux system that runs entirely from a USB drive, allowing you to carry your tools in your pocket. There is no installation or setup required—just plug it in, boot up, and you have a consistent, distraction-free environment ready for code.
+<b>e-OS</b> is a portable workspace designed for developers who need to move fast. It is a full Arch Linux system that runs entirely from a USB drive, allowing you to carry your tools in your pocket. There is no installation or setup required—just plug it in, boot up, and you have a consistent, distraction-free environment ready for code.
 </p>
 
 </div>
@@ -21,23 +21,26 @@ e-OS is a portable workspace designed for developers who need to move fast. It i
 <img src="https://nvchad.com/banner.webp">
 
 <img src="https://nvchad.com/screenshots/onedark.webp">
-<img src="https://nvchad.com/screenshots/rxyhn1.webp">
 
 
 ## ⚡ Features
-Rejecting the visual bloat of modern operating systems, e-OS adopts a strict **"function over form"** philosophy. It prioritizes raw speed, keyboard-driven efficiency, and essentialism. It doesn't care about looking pretty; it cares about getting the job done.
 
-### 🚀 Zero-Config Development
-**Boot and code.** The environment comes pre-provisioned with a fully configured compiler, interpreter, and Neovim setup. There is no post-install setup, no "ricing" required, and no time wasted. You jump straight into the code.
+* 🎒 **Portable:** Your entire workspace fits in your pocket. Runs entirely form a USB drive.
+* ✨ **Zero Setup:** No installation required. Boot up and you are instantly ready to develop.
+* ⌨️ **Keyboard First:** Mouse-free efficiency. Every action is mapped to a keybinding so your hands never leave the home row.
+* 🪟 **Auto-Tiling:** Powered by Sway. Windows snap into logical grids automatically—no more manual dragging or resizing.
+* 🛠️ **Dev-Ready:** Comes pre-loaded with a fully configured coding environment (Neovim, git, compilers).
 
-### ⌨️ Keyboard-Centric Workflow
-**Mouse interaction is obsolete.** Every action—from launching apps to managing windows—is mapped to intuitive keybindings. The workflow is engineered to keep your hands on the home row, maximizing speed and reducing context switching.
 
-### 🗔 Efficient Window Management
-**Focus on logic, not layout.** The Sway window manager automatically snaps applications into efficient tiling grids. You never drag, resize, or minimize windows; the system manages your screen real estate so you can manage your code.
 
-### 💿 The Portable Arsenal
-**Your workstation, anywhere.** e-OS is designed to live on a USB drive. It provides a consistent, high-performance development environment on any hardware you encounter, without leaving a trace on the host machine.
+## ⚙️ Configuration
+
+Want to change the defaults before building? Here is how to tweak the source:
+
+* 📦 **Add Software:** Edit `packages.x86_64` to add or remove packages from the ISO.
+* 🎨 **Dotfiles:** Modify `airootfs/etc/skel/.config` to change the default Sway, Neovim, or Zsh configs for new users.
+* 🖼️ **Wallpapers:** Drop your images into `airootfs/.config/background` and `airootfs/.config/lockscreen` to bake them into the build.
+* 🚀 **Services:** Place startups units in `airootfs/etc/systemd/system` to enable them during boot.
 
 
 ## 🛠️ Building from Source
