@@ -27,4 +27,7 @@ file_permissions=(
   ["/usr/local/bin/Installation_guide"]="0:0:755"
   ["/usr/local/bin/livecd-sound"]="0:0:755"
   ["/usr/local/bin/sway-start"]="0:0:0755"
+  # This ensures everything in skel is owned by root:root with 755 permissions
+  # (The system copies these to the new user on creation)
+  ["/etc/skel"]="0:0:755"
 )
