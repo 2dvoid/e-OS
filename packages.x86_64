@@ -194,3 +194,8 @@ xl2tpd
 xorg-xwayland
 yazi
 zsh
+### Chaotic AUR binaries
+chaotic-keyring
+chaotic-mirrorlist
+wallust-git
+zen-browser-bin
