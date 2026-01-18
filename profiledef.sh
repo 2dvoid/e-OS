@@ -5,7 +5,7 @@ iso_name="e-OS"
 iso_label="e-OS_$(date --date="@${SOURCE_DATE_EPOCH:-$(date +%s)}" +%Y%m)"
 iso_publisher="2dvoid <https://github.com/2dvoid>"
 iso_application="e-OS Live System"
-iso_version="v1.0"
+iso_version="v0.0.1"
 install_dir="eos"
 buildmodes=('iso')
 bootmodes=('bios.syslinux'

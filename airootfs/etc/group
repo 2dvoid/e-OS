@@ -1,8 +1,8 @@
 root:x:0:root
-adm:x:999:emon
-wheel:x:998:emon
-audio:x:996:emon
-input:x:993:emon
-video:x:984:emon
-seat:x:968:emon
-emon:x:1000:
+adm:x:999:ghost
+wheel:x:998:ghost
+audio:x:996:ghost
+input:x:993:ghost
+video:x:984:ghost
+seat:x:968:ghost
+ghost:x:1000:
