@@ -199,3 +199,16 @@ chaotic-keyring
 chaotic-mirrorlist
 wallust-git
 zen-browser-bin
+###
+### C Development
+base-devel
+clang
+### Ruby Development
+ruby
+rbenv
+ruby-build
+libffi
+libyaml
+openssl
+zlib
+
